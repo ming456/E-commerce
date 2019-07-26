@@ -3,7 +3,7 @@
 <html>
 <body>
 <h2>添加数据成功
-   ${admin}
+   ${admin.supername}
 </h2>
 </body>
 </html>
