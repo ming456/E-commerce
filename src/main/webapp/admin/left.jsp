@@ -47,6 +47,27 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="sidebar-title">商品管理</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="nav sub-nav">
+                        <li>
+                            <a href="goods_list.html">
+                                <span class="glyphicon glyphicon-calendar"></span> 商品列表 </a>
+                        </li>
+                        <li>
+                            <a href="goods_add.html">
+                                <span class="glyphicon glyphicon-check"></span> 添加商品 </a>
+                        </li>
+                        <li>
+                            <a href="goods_update.html">
+                                <span class="glyphicon glyphicon-check"></span> 修改商品 </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <div class="sidebar-toggle-mini">
                 <a href="#">
