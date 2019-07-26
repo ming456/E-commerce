@@ -22,7 +22,7 @@ public class AdminLoginController {
         String password=request.getParameter("password");
         System.out.println("帐号"+username+"密码"+password);
         if(username.equals("com")&&password.equals("123456")){
-            System.out.println("帐号密码正确");
+            System.out.println("帐号密码正确.....");
             Admin admin=new Admin();
             admin.setSupername(username);
             admin.setPassword(password);
