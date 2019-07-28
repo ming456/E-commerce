@@ -17,4 +17,9 @@ public class AdminServiceImpl implements AdminService {
             return true;
         return false;
     }
+
+    @Override
+    public Admin findAdmin(String username, String password) {
+        return adminMapper.findAdmin(username,password);
+    }
 }

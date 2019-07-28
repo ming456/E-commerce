@@ -6,4 +6,8 @@
     <insert id="insertAdmin">
    insert into admin(superName,password,access)values(#{supername},#{password},#{access})
  </insert>
+    <select id="findAdmin" resultType="com.neu.bean.Admin">
+        select * from admin where superName=#{username} and password=#{password} and access=0;
+    </select>
+
 </mapper>

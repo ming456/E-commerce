@@ -1,37 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2019/7/27
+  Time: 12:27
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>欢迎使用油画商城</title>
+    <title>欢迎使用电子商务后台管理系统</title>
     <meta name="keywords" content="HTML5 Bootstrap 3 Admin Template UI Theme" />
     <meta name="description" content="AbsoluteAdmin - A Responsive HTML5 Admin UI Framework">
     <meta name="author" content="AbsoluteAdmin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/skin/default_skin/css/theme.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/admin-tools/admin-forms/css/admin-forms.css">
-    <link rel="shortcut icon" href="${pageContext.request.contextPath }/assets/img/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../css/theme.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin-forms.css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
+
 <body class="external-page external-alt sb-l-c sb-r-c">
 <div id="main" class="animated fadeIn">
     <section id="content_wrapper">
         <section id="content">
             <div class="admin-form theme-info mw500" id="login">
                 <div class="content-header">
-                    <h1>油画商城</h1>
-                    <p class="lead">欢迎使用电子商务自动化管理系统</p>
+                    <h1> IMOOC Cake</h1>
+                    <p class="lead">欢迎使用电子商务后台管理管理系统</p>
                 </div>
                 <div class="panel mt30 mb25">
-                    <form method="post" action="/login.do" id="contact">
+                    <form action="/login.do" id="contact">
                         <div class="panel-body bg-light p25 pb15">
                             <div class="section">
-                                <label for="sn" class="field-label text-muted fs18 mb10">名称</label>
-                                <label for="sn" class="field prepend-icon">
-                                    <input type="text" name="sn" id="sn" class="gui-input" placeholder="请输入名称...">
-                                    <label for="sn" class="field-icon">
+                                <label for="account" class="field-label text-muted fs18 mb10">账号</label>
+                                <label for="account" class="field prepend-icon">
+                                    <input type="text" name="username" id="account" class="gui-input" placeholder="请输入工号...">
+                                    <label for="account" class="field-icon">
                                         <i class="fa fa-user"></i>
                                     </label>
                                 </label>
@@ -45,9 +53,15 @@
                                     </label>
                                 </label>
                             </div>
-                        </div> 
-                        <div class="panel-footer clearfix text-center">
-							<button type="submit" class="button btn-primary mr10"> 登陆 </button>
+                        </div>
+
+                        <div class="panel-footer clearfix">
+                            <button type="submit" class="button btn-primary mr10 pull-right">登陆</button>
+                            <label class="switch ib switch-primary mt10">
+                                <input type="checkbox" name="remember" id="remember" checked>
+                                <label for="remember" data-on="是" data-off="否"></label>
+                                <span>记住我</span>
+                            </label>
                         </div>
                     </form>
                 </div>
@@ -55,10 +69,9 @@
         </section>
     </section>
 </div>
-<script src="vendor/jquery/jquery-1.11.1.min.js"></script>
-<script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
-<script src="assets/js/utility/utility.js"></script>
-<script src="assets/js/demo/demo.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/utility.js"></script>
 </body>
+
 </html>

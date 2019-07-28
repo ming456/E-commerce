@@ -4,4 +4,6 @@ import com.neu.bean.Admin;
 
 public interface AdminService {
     boolean addAdmin(Admin admin);
+
+    Admin findAdmin(String username, String password);
 }
