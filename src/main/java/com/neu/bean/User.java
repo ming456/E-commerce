@@ -1,6 +1,7 @@
 package com.neu.bean;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private Integer id;
@@ -27,6 +28,8 @@ public class User {
 
     private Date createtime;
 
+    private List<Address> addresses;
+
     public Integer getId() {
         return id;
     }
@@ -40,7 +43,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public String getPassword() {
@@ -48,7 +51,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
     public String getTipsquestion() {
@@ -56,7 +59,7 @@ public class User {
     }
 
     public void setTipsquestion(String tipsquestion) {
-        this.tipsquestion = tipsquestion == null ? null : tipsquestion.trim();
+        this.tipsquestion = tipsquestion;
     }
 
     public String getTipsanswer() {
@@ -64,7 +67,7 @@ public class User {
     }
 
     public void setTipsanswer(String tipsanswer) {
-        this.tipsanswer = tipsanswer == null ? null : tipsanswer.trim();
+        this.tipsanswer = tipsanswer;
     }
 
     public String getRealname() {
@@ -72,7 +75,7 @@ public class User {
     }
 
     public void setRealname(String realname) {
-        this.realname = realname == null ? null : realname.trim();
+        this.realname = realname;
     }
 
     public String getCard() {
@@ -80,7 +83,7 @@ public class User {
     }
 
     public void setCard(String card) {
-        this.card = card == null ? null : card.trim();
+        this.card = card;
     }
 
     public String getEmail() {
@@ -88,7 +91,7 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+        this.email = email;
     }
 
     public Date getBirthday() {
@@ -104,7 +107,7 @@ public class User {
     }
 
     public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
+        this.sex = sex;
     }
 
     public Integer getStatus() {
@@ -121,5 +124,32 @@ public class User {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", tipsquestion='" + tipsquestion + '\'' +
+                ", tipsanswer='" + tipsanswer + '\'' +
+                ", realname='" + realname + '\'' +
+                ", card='" + card + '\'' +
+                ", email='" + email + '\'' +
+                ", birthday=" + birthday +
+                ", sex='" + sex + '\'' +
+                ", status=" + status +
+                ", createtime=" + createtime +
+                ", addresses=" + addresses +
+                '}';
     }
 }
