@@ -1,6 +1,7 @@
 package com.neu.bean;
 
 import java.util.Date;
+import java.util.List;
 
 public class Goods {
     private Integer id;
@@ -92,5 +93,20 @@ public class Goods {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", goodsname='" + goodsname + '\'' +
+                ", classify=" + classify +
+                ", details='" + details + '\'' +
+                ", price=" + price +
+                ", count=" + count +
+                ", title='" + title + '\'' +
+                ", imgpath='" + imgpath + '\'' +
+                ", createtime=" + createtime +
+                '}';
     }
 }
