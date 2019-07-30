@@ -23,4 +23,6 @@ public interface UserMapper {
     User selectUserByCard(String card);
     //通过身份账号模糊查询用户
     List<User> selectUserByCardP(String card);
+    //通过id查询收货地址
+    User selectById(int id);
 }

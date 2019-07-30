@@ -1,5 +1,7 @@
 package com.neu.bean;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +23,16 @@ public class Goods {
     private String imgpath;
 
     private Date createtime;
+
+    private MultipartFile photo;
+
+    public MultipartFile getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(MultipartFile photo) {
+        this.photo = photo;
+    }
 
     public Integer getId() {
         return id;

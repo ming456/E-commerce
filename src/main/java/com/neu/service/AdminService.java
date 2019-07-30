@@ -22,5 +22,5 @@ public interface AdminService {
     //什么管理员
     int whatAdmin(String superName);
     //name，psw找找管理员
-    Admin findAdmin(String username,String password);
+    Admin findAdmin(String supername, String password);
 }

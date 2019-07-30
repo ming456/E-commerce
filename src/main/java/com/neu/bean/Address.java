@@ -13,6 +13,16 @@ public class Address {
 
     private Integer userid;
 
+    private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -70,6 +80,7 @@ public class Address {
                 ", phone='" + phone + '\'' +
                 ", receiver='" + receiver + '\'' +
                 ", userid=" + userid +
+                ", status=" + status +
                 '}';
     }
 }

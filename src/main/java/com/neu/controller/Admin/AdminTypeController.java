@@ -22,9 +22,10 @@ public class AdminTypeController {
      */
     @RequestMapping("/findType.do")
     public String findAllType(HttpServletRequest request){
-        List<Type> list=adminTypeService.findAllType2();
-        request.setAttribute("typeslist",list);
-        return"admin/catalog_list.jsp";
+            List<Type> list=adminTypeService.findAllType2();
+            request.setAttribute("typeslist",list);
+            return"admin/catalog_list.jsp";
+
     }
 
     /**

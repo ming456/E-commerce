@@ -22,5 +22,5 @@ public interface AdminMapper {
    //根据名字模糊查询查找管理员
    List<Admin> selectAdminLikeName(String superName);
 
-   Admin selectAdmin(String supername,String password);
+   Admin selectAdmin(@Param("supername") String supername, @Param("password") String password);
 }

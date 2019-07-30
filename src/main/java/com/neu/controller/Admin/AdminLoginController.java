@@ -20,9 +20,9 @@ public class AdminLoginController {
      * @param mv
      * @return
      */
-    @RequestMapping("/tologin.do")
+    @RequestMapping("/toLogin.do")
     public ModelAndView toLogin(ModelAndView mv){
-        mv.setViewName("redirect:/admin/login.jsp");
+        mv.setViewName("/admin/login.jsp");
         return mv;
     }
 
@@ -38,14 +38,16 @@ public class AdminLoginController {
         String password=request.getParameter("password");
         Admin existAdmin=adminService.findAdmin(username,password);
         if(existAdmin!=null){
-            //登录成功，进入分类主页
-            System.out.println("帐号密码正确.....");
-            request.getSession().setAttribute("existAdmin",existAdmin);
+            //用户存在且密码正确
+            System.out.println("帐号" + username + "密码" + password);
+            request.setAttribute("existAdmin",existAdmin);
+            //权限判定
+            Integer access = existAdmin.getAccess();
             return "/findType.do";
         }else{
             //登录失败
             request.setAttribute("msg","帐号密码不正确");
-            return "/login.jsp";
+            return "/admin/login.jsp";
         }
     }
     /**
