@@ -26,7 +26,7 @@ public class Address {
     }
 
     public void setZipcode(String zipcode) {
-        this.zipcode = zipcode == null ? null : zipcode.trim();
+        this.zipcode = zipcode;
     }
 
     public String getSite() {
@@ -34,7 +34,7 @@ public class Address {
     }
 
     public void setSite(String site) {
-        this.site = site == null ? null : site.trim();
+        this.site = site;
     }
 
     public String getPhone() {
@@ -42,7 +42,7 @@ public class Address {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public String getReceiver() {
@@ -50,7 +50,7 @@ public class Address {
     }
 
     public void setReceiver(String receiver) {
-        this.receiver = receiver == null ? null : receiver.trim();
+        this.receiver = receiver;
     }
 
     public Integer getUserid() {
@@ -59,5 +59,17 @@ public class Address {
 
     public void setUserid(Integer userid) {
         this.userid = userid;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", zipcode='" + zipcode + '\'' +
+                ", site='" + site + '\'' +
+                ", phone='" + phone + '\'' +
+                ", receiver='" + receiver + '\'' +
+                ", userid=" + userid +
+                '}';
     }
 }

@@ -713,11 +713,12 @@
   position: relative;
   width: 100%;
 }
+
 .admin-form .append-icon .field-icon,
 .admin-form .prepend-icon .field-icon {
   top: 0;
   z-index: 4;
-  width: 42px;
+  width: 56px;
   height: 42px;
   color: inherit;
   line-height: 42px;

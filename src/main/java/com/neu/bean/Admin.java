@@ -40,4 +40,14 @@ public class Admin {
     public void setAccess(Integer access) {
         this.access = access;
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "id=" + id +
+                ", supername='" + supername + '\'' +
+                ", password='" + password + '\'' +
+                ", access=" + access +
+                '}';
+    }
 }

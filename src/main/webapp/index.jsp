@@ -3,7 +3,8 @@
 <html>
 <body>
 <h2>
-   <a href="/tologin.do">进入后台管理系统...</a>
+   <a href="/toLogin.do">进入后台管理系统...</a>
+   <a href="/toLogin1.do">管理员</a>
 </h2>
 </body>
 </html>

@@ -1,7 +1,9 @@
 package com.neu.bean;
 
+import java.util.List;
+
 public class Type {
-    private Integer id;
+    private int id;
 
     private String typename;
 
@@ -9,11 +11,21 @@ public class Type {
 
     private String desciption;
 
-    public Integer getId() {
+    private List<Type> children;
+
+    public List<Type> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Type> children) {
+        this.children = children;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -39,5 +51,16 @@ public class Type {
 
     public void setDesciption(String desciption) {
         this.desciption = desciption == null ? null : desciption.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Type{" +
+                "id=" + id +
+                ", typename='" + typename + '\'' +
+                ", parentid=" + parentid +
+                ", desciption='" + desciption + '\'' +
+                ", children=" + children +
+                '}';
     }
 }
