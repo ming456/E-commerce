@@ -56,7 +56,7 @@
         </div>
         <div class="back_search">
             <div class="back_search_red">
-                <form  method="post" action="/searchgoods.do">
+                <form  method="post" action="/searchgoods.do?pa=1">
                     <div class="div2">
                         <input type="text" name="searchgoods" class="txt" placeholder="请输入您要查询的内容"/>
                     </div>
@@ -157,7 +157,7 @@
         <div class="AreaR">
             <div class="AreaM clearfix">
                 <div id="focus">
-                    <a href="#">
+                    <a href="">
                         <img class="samllimg" alt="" src="/images/before/540.jpg" /></a>
                 </div>
             </div>

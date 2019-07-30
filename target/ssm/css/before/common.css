@@ -117,9 +117,9 @@ visibility:hidden;
 .login .kk{ width:560px; border:3px solid #f4f4f4; margin: 0 auto; padding:25px;}
 .login .kk span{ color:#FF0000; padding-right:4px;}
 .login .kk table td{ border-bottom:1px dotted #d3d3d3; padding:10px; font-size:14px;}
-.login .kk .txt_g{border:1px solid #858585;background:url(../../images/before/txt2.gif) repeat-x 0 top; padding:5px; line-height:24px; width:280px;}
-.login .kk .txt_g2{border:1px solid #858585;background:url(../../images/before/txt2.gif) repeat-x 0 top; padding:5px; line-height:24px; width:120px;}
-.login .kk .txt_r{border:1px solid #fd6768;background:url(../../images/before/txt1.gif) repeat-x 0 top; padding:5px; line-height:24px;width:280px;}
+.login .kk .txt_g{border:1px solid #858585; padding:5px; line-height:24px; width:280px;}
+.login .kk .txt_g2{border:1px solid #858585;padding:5px; line-height:24px; width:120px;}
+.login .kk .txt_r{border:1px solid #fd6768;padding:5px; line-height:24px;width:280px;}
 .login .kk .ok{background:url(../../images/before/anniu1.gif) no-repeat 0 top; line-height:34px;width:74px; height:35px; border:none; font-size:14px; color:#fff; font-weight:bold;}
 .login .kk table .none{border-bottom:none;}
 .login .kk table span {font-size:12px;}
@@ -129,6 +129,6 @@ visibility:hidden;
 .red_pg A {BORDER: #d7d7d7 1px solid; PADDING: 3px 8px; BACKGROUND-COLOR: #fff;  DISPLAY: inline; HEIGHT: 26px; COLOR: #333; MARGIN-LEFT: 4px; OVERFLOW: hidden; TEXT-DECORATION: none; line-height:26px;}
 .red_pg A:hover {BORDER: #f2b579 1px solid; COLOR: #f39131;}
 .red_pg STRONG {BORDER: #f2b579 1px solid; PADDING: 3px 8px; BACKGROUND-COLOR: #ffeac5;  DISPLAY: inline; HEIGHT: 26px; COLOR: #333; MARGIN-LEFT: 4px; OVERFLOW: hidden; TEXT-DECORATION: none; line-height:26px;}
-.red_pg .ref{background:url(../../images/before/post6.gif) no-repeat left center; padding-left:15px;}
-.red_pg .next{background:url(../../images/before/post7.gif) no-repeat right center; padding-right:15px;}
+.red_pg .ref{padding-left:15px;}
+.red_pg .next{padding-right:15px;}
 

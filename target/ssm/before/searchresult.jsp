@@ -118,7 +118,7 @@
                     <td colspan="6" height="15px"
                         style="border: 0 none; background: #FFF"></td>
                 </tr>
-                <c:forEach items="${goodsList}" var="good">
+                <c:forEach items="${page.List}" var="good">
 
                     <tr>
                         <td bgcolor="#ffffff" align="center">${good.getId()}</td>
@@ -138,6 +138,44 @@
             </table>
         </div>
     </div>
+    <!--分页-->
+    <div class="col-md-6">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li><a href="${pageContext.request.contextPath}/searchgoods.do?pa=1&searchgoods=${searchgoods}">首页</a></li>
+                <!--上一页-->
+                <li>
+                    <c:if test="${page.hasPreviousPage}">
+                        <a href="${pageContext.request.contextPath}/searchgoods.do?pa=${page.pageNum-1}&searchgoods=${searchgoods}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </c:if>
+                </li>
+                <c:forEach items="${page.navigatepageNums}" var="page_num">
+                    <c:if test="${page_num == page.pageNum}">
+                        <li class="active"><a href="#">${page_num}</a></li>
+                    </c:if>
+                    <c:if test="${page_num != page.pageNum}">
+                        <li><a href="${pageContext.request.contextPath}/searchgoods.do?pa=${page_num}&searchgoods=${searchgoods}">${page_num}</a>
+                        </li>
+                    </c:if>
+
+                </c:forEach>
+                <!--下一页-->
+                <li>
+                    <c:if test="${pageInfo.hasNextPage}">
+                        <a href="${pageContext.request.contextPath}/emps?pn=${pageInfo.pageNum+1}"
+                           aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </c:if>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/listEmp?pn=${pageInfo.pages}">末页</a></li>
+            </ul>
+        </nav>
+    </div>
+
 </div>
 <script type="text/javascript">
     <!--详情页点击-->

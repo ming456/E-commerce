@@ -12,7 +12,6 @@
 #tbox{width:40px; float:right; position:fixed; right:50px; bottom:15px;
 _position:absolute;
 _bottom:auto;  
-_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
 _margin-bottom:15px;
 }
 #xihuan,#fankui,#gotop{ width:40px; height:42px; background:url(../../images/before/gotop.gif) no-repeat; display:block;}
@@ -743,8 +742,8 @@ _margin-bottom:15px;
 .num_pg A {BORDER: #d7d7d7 1px solid; PADDING: 3px 8px; BACKGROUND-COLOR: #fff;  DISPLAY: inline; HEIGHT: 26px; COLOR: #333; MARGIN-LEFT: 4px; OVERFLOW: hidden; TEXT-DECORATION: none; line-height:26px;}
 .num_pg A:hover {BORDER: #90bfff 1px solid; COLOR: #376aaf;}
 .num_pg STRONG {BORDER: #90bfff 1px solid; PADDING: 3px 8px; BACKGROUND-COLOR: #dbeaff;  DISPLAY: inline; HEIGHT: 26px; COLOR: #333; MARGIN-LEFT: 4px; OVERFLOW: hidden; TEXT-DECORATION: none; line-height:26px;}
-.num_pg .ref{background:url(../../images/before/post6.gif) no-repeat left center; padding-left:15px;}
-.num_pg .next{background:url(../../images/before/post7.gif) no-repeat right center; padding-right:15px;}
+.num_pg .ref{ padding-left:15px;}
+.num_pg .next{padding-right:15px;}
 
 
 

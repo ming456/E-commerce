@@ -96,7 +96,7 @@ h3{ font-size:16px;}
 
 
 .skin_a .front_daohang li.all{background:#7c0005 url(../../images/before/skina_4.gif) no-repeat center top;  height:40px; display:block;}
-.skin_a .front_daohang li.all p{background:url(../../images/skina_5.gif) no-repeat right center; text-align:left; width:90px; float:left;display:block;}
+.skin_a .front_daohang li.all p{background:url(/images/before/skina_5.gif) no-repeat right center; text-align:left; width:90px; float:left;display:block;}
 
 .menu5 .menu-bd { display:none;Z-INDEX: 1001; background:#6c0004; POSITION: absolute; WIDTH: 630px;  margin:40px 0 0 -20px;}
 /*.menu5 .menu-bd .menu-bd-panel { padding:5px 0;}
@@ -141,7 +141,7 @@ h3{ font-size:16px;}
 
 
 .main_login_txt{ border:1px solid #ccc; padding:2px; width:40px;}
-.main_login_anniu{background:url(../../images/login_ann.gif) no-repeat left top; width:43px; height:20px; line-height:20px; text-align:center; float:left; }
+.main_login_anniu{background:url(/images/before/login_ann.gif) no-repeat left top; width:43px; height:20px; line-height:20px; text-align:center; float:left; }
 .main_login td{ border-collapse:collapse; padding:0 2px;}
 
 
@@ -209,7 +209,7 @@ h3{ font-size:16px;}
 
   /*Í·²¿µÇÂ¼µ¯³öµÇÂ½*/
 #alert {border:5px solid #baebf3;width:400px;background:#fff;z-index:10000;position:absolute;display:none;}  
-#alert h4 {color:#333;padding:10px; height:20px; font-size:14px; border-bottom:1px solid #ccc; background:url(../../images/before/bj20.gif) repeat-x 0 top;}  
+#alert h4 {color:#333;padding:10px; height:20px; font-size:14px; border-bottom:1px solid #ccc;}
 #alert h4 span {float:left;}  
 #alert h4 span#close {margin-left:280px;cursor:pointer;}
 
