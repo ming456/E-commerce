@@ -4,10 +4,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neu.dao.AdminMapper">
     <insert id="insertAdmin">
-   insert into admin(superName,password,access)values(#{supername},#{password},#{access})
- </insert>
-    <select id="findAdmin" resultType="com.neu.bean.Admin">
-        select * from admin where superName=#{username} and password=#{password} and access=0;
+        INSERT into admin(superName,password,access) values(#{supername},#{password},#{access})
+</insert>
+    <update id="updateAdminAccess">
+        UPDATE admin SET access=#{access} WHERE id=#{id}
+    </update>
+    <delete id="deleteAdmin">
+        DELETE from admin where id=#{id}
+    </delete>
+    <select id="selectAdminAll" resultType="com.neu.bean.Admin">
+        SELECT * from admin
     </select>
-
+    <select id="selectAdminById" resultType="com.neu.bean.Admin">
+        SELECT * from admin where id=#{id}
+    </select>
+    <select id="selectAdminByName" resultType="com.neu.bean.Admin">
+        SELECT * from admin where superName=#{supername}
+    </select>
+    <select id="selectAdminLikeName" resultType="com.neu.bean.Admin">
+        SELECT * from admin where superName like "%"#{supername}"%"
+    </select>
+    <select id="selectAdmin" resultType="com.neu.bean.Admin">
+        SELECT * from admin where superName=#{supername} and password=#{password}
+    </select>
 </mapper>

@@ -1,6 +1,9 @@
 package com.neu.bean;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.Date;
+import java.util.List;
 
 public class Goods {
     private Integer id;
@@ -20,6 +23,26 @@ public class Goods {
     private String imgpath;
 
     private Date createtime;
+
+    private MultipartFile photo;
+
+    private Type type;
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public MultipartFile getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(MultipartFile photo) {
+        this.photo = photo;
+    }
 
     public Integer getId() {
         return id;
@@ -92,5 +115,20 @@ public class Goods {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", goodsname='" + goodsname + '\'' +
+                ", classify=" + classify +
+                ", details='" + details + '\'' +
+                ", price=" + price +
+                ", count=" + count +
+                ", title='" + title + '\'' +
+                ", imgpath='" + imgpath + '\'' +
+                ", createtime=" + createtime +
+                '}';
     }
 }

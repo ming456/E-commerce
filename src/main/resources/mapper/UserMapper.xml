@@ -1,4 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neu.dao.UserMapper">
+    <insert id="insertUser">
+        INSERT `user`(userName,`password`,tipsQuestion,tipsAnswer,realName,card,email,birthday,sex,createTime)
+VALUES(#{username},#{password},#{tipsquestion},#{tipsanswer},#{realname},#{card},#{email},#{birthday},#{sex},#{createtime})
+    </insert>
+    <update id="updateUser">
+        UPDATE `user` SET userName=#{username},
+        `password`=#{password},
+        tipsQuestion=#{tipsquestion},
+        tipsAnswer=#{tipsanswer},
+        realName=#{realname},
+        card=#{card},
+        email=#{email},
+        birthday=#{birthday},
+        sex=#{sex},
+        status=#{status},
+        createTime=#{createtime}
+        WHERE id=#{id}
+    </update>
+    <delete id="deleteUser">
+        delete from `user` where id=#{id}
+    </delete>
+
+    <!--根据user查user连带address-->
+    <select id="selectUserById" resultMap="userAndAddress">
+        select u.*,a.id address_id,a.zipCode,a.site,a.phone,a.receiver,a.userId
+         from `user` u left join `address` a on u.id=a.userId WHERE u.id=#{id}
+    </select>
+    <resultMap id="userAndAddress" type="com.neu.bean.User">
+        <id property="id" column="id"/>
+        <result property="username" column="userName"/>
+        <result property="password" column="password"/>
+        <result property="tipsquestion" column="tipsQuestion"/>
+        <result property="tipsanswer" column="tipsAnswer"/>
+        <result property="realname" column="realName"/>
+        <result property="card" column="card"/>
+        <result property="email" column="email"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="status" column="status"/>
+        <result property="status" column="status"/>
+        <result property="createtime" column="createTime"/>
+        <collection property="addresses" javaType="list" ofType="Address">
+            <id property="id" column="address_id"/>
+            <result property="zipcode" column="zipCode"/>
+            <result property="site" column="site"/>
+            <result property="phone" column="phone"/>
+            <result property="receiver" column="receiver"/>
+            <result property="userid" column="userId"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectAllUser" resultType="com.neu.bean.User">
+        select * from `user`
+    </select>
+    <select id="selectUserByNick" resultType="com.neu.bean.User">
+        select * from `user` where userName=#{userName}
+    </select>
+    <select id="selectUserByNickP" resultType="com.neu.bean.User">
+        select * from `user` where userName like "%"#{userName}"%"
+    </select>
+    <select id="selectUserByCard" resultType="com.neu.bean.User">
+        select * from `user` where card=#{card}
+    </select>
+    <select id="selectUserByCardP" resultType="com.neu.bean.User">
+        select * from `user` where card like "%"#{card}"%"
+    </select>
 </mapper>

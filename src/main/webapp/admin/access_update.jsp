@@ -51,7 +51,7 @@
                                             </label>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="access" class="field">
+                                            <label for="access" class="field select">
                                                 <select id="access" name="access">
                                                     <option value="1">管理员</option>
                                                     <option value="2">商品管理员</option>

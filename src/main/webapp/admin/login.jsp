@@ -33,7 +33,7 @@
                     <p class="lead">欢迎使用电子商务后台管理管理系统</p>
                 </div>
                 <div class="panel mt30 mb25">
-                    <form action="/login.do" id="contact">
+                    <form action="/login.do" method="post" id="contact">
                         <div class="panel-body bg-light p25 pb15">
                             <div class="section">
                                 <label for="account" class="field-label text-muted fs18 mb10">账号</label>

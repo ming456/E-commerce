@@ -3,4 +3,79 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neu.dao.GoodsMapper">
+
+    <!--根据商品的名称、详情、标题进行模糊查询-->
+    <select id="selectGoodsbyvague" resultType="Goods">
+        select* from goods where goodsname like '%' #{ooo} '%' or details like '%' #{ooo} '%' or title like '%' #{ooo} '%'
+    </select>
+    <!--根据商品id查询-->
+    <select id="selectGoodsById" resultType="Goods">
+        select * from goods where id=#{xxx}
+    </select>
+    <!--查询销量排行内商品-->
+    <select id="selectGoodsSum" resultType="GoodsExtend">
+        select g.* ,sum(goodsNum) goodssum from goods g,orderdetail o where g.id=o.goodsid and g.count>0
+        group by g.id,g.goodsName,g.classfiy,g.details,g.price,g.count,g.title,g.imgpath,g.createTime
+        order by goodssum desc limit 5
+    </select>
+    <!--查询人气排行内商品-->
+    <select id="selectGoodsCount" resultType="GoodsExtend">
+        select g.* ,count(o.goodsId) goodsidcount from goods g,orderdetail o where g.id=o.goodsId and g.count>0
+        group by g.id,g.goodsName,g.classfiy,g.details,g.price,g.count,g.title,g.imgpath,g.createTime
+        order by goodsidcount desc limit 5
+    </select>
+    <select id="selectGoodsAll" resultType="Goods">
+        select * from Goods where count>0
+    </select>
+
+    <resultMap id="findAll" type="Goods">
+        <id property="id" column="id"/>
+        <result property="goodsname" column="goodsname"/>
+        <result property="classify" column="classify"/>
+        <result property="details" column="details"/>
+        <result property="price" column="price"/>
+        <result property="count" column="count"/>
+        <result property="title" column="title"/>
+        <result property="imgpath" column="imgpath"/>
+        <result property="createtime" column="createtime"/>
+        <association property="type" javaType="Type">
+            <id property="id" column="id"/>
+            <result property="typename" column="typename"/>
+        </association>
+    </resultMap>
+
+    <!--查询所有商品-->
+    <select id="findAllGoods" resultMap="findAll" resultType="com.neu.bean.Goods">
+        select
+            goods.id,goodsname,typename,details,price,count,title,imgpath,createTime
+        from goods,type
+        where classify=type.id
+    </select>
+
+    <!--查询单个商品-->
+    <select id="findGoodsById" resultMap="findAll" resultType="com.neu.bean.Goods">
+        select
+            goods.id,goodsname,typename,details,price,count,title,imgpath,createTime
+        from goods,type
+        where classify=type.id and goods.id=#{id}
+    </select>
+
+    <!--添加商品-->
+    <insert id="addGoods">
+        insert goods(goodsname,classify,details,price,count,title,imgpath)
+        values (#{goodsname},#{classify},#{details},#{price},#{count},#{title},#{imgpath})
+    </insert>
+
+    <!--删除商品-->
+    <delete id="delGoods">
+        delete from goods where goods.id=#{id}
+    </delete>
+
+    <!--更新商品-->
+    <update id="updateGoods">
+        update goods set goodsname=#{goodsname},classify=#{classify},details=#{details},
+        price=#{price},count=#{count},title=#{title},imgpath=#{imgpath}
+        where id=#{id}
+    </update>
+
 </mapper>
