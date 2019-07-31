@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neu.dao.OrdersMapper">
+    <!--查询订单，包含order,user,orderdetail表-->
+    <resultMap id="userorderdetailmap2" type="Orders">
+        <id property="id" column="id"/>
+        <result property="userid" column="userId"/>
+        <result property="ordernum" column="orderNum"/>
+        <result property="orderstatus" column="orderStatus"/>
+        <result property="createtime" column="createTime"/>
+        <result property="totalpay" column="totalPay"/>
+        <association property="user" javaType="User">
+            <id property="id" column="userId"/>
+            <result property="username" column="userName"/>
+            <result property="realname" column="realName"/>
+            <result property="email" column="email"/>
+            <result property="sex" column="sex"/>
+            <result property="email" column="email"/>
+        </association>
+        <collection property="orderdetails" ofType="Orderdetail">
+            <id property="id" column="orderdetail_id"/>
+            <result property="goodsnum" column="goodsNum"/>
+            <result property="pay" column="pay"/>
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="userorderdetailmap2">
+        select orders.* ,
+        user.userName,user.sex,user.email,user.realName,
+        orderdetail.id orderdetail_id,
+        orderdetail.goodsNum,
+        orderdetail.pay
+        from orders,orderdetail,user
+        where
+        orders.userId=user.id
+        and orders.id=orderdetail.orderId
+    </select>
+
+    <!--根据id查询订单明细，包含order,user,orderdetail表-->
+    <resultMap id="userorderdetailmap" type="Orders">
+        <id property="id" column="id"/>
+        <result property="userid" column="userId"/>
+        <result property="ordernum" column="orderNum"/>
+        <result property="orderstatus" column="orderStatus"/>
+        <result property="createtime" column="createTime"/>
+        <result property="totalpay" column="totalPay"/>
+        <association property="user" javaType="User">
+            <id property="id" column="userId"/>
+            <result property="username" column="userName"/>
+            <result property="realname" column="realName"/>
+            <result property="email" column="email"/>
+            <result property="sex" column="sex"/>
+            <result property="email" column="email"/>
+        </association>
+        <collection property="orderdetails" ofType="Orderdetail">
+            <id property="id" column="orderdetail_id"/>
+            <result property="goodsnum" column="goodsNum"/>
+            <result property="goodsid" column="goodsId"/>
+            <result property="pay" column="pay"/>
+        </collection>
+    </resultMap>
+    <select id="findOrderDetailList" resultMap="userorderdetailmap">
+       select orders.* ,
+        user.userName,user.sex,user.email,user.realName,
+        orderdetail.id orderdetail_id,
+        orderdetail.goodsNum,
+        orderdetail.goodsId,
+        orderdetail.pay
+        from orders,orderdetail,user
+        where
+        orders.userId=user.id
+        and orders.id=orderdetail.orderId
+        and orders.id=#{xxx}
+    </select>
+
+
+    <resultMap id="withgoods" type="Orders">
+        <id property="id" column="orders_id"/>
+        <result property="ordernum" column="orderNum"/>
+        <collection property="orderdetails" ofType="Orderdetail">
+            <id property="id" column="orderdetail_id"/>
+            <result property="goodsid" column="goodsId"/>
+            <result property="goodsnum" column="goodsNum"/>
+            <result property="pay" column="pay"/>
+            <association property="goods" javaType="Goods">
+                <id property="id" column="goods_id"/>
+                <result property="goodsname" column="goodsName"/>
+                <result property="price" column="price"/>
+                <result property="imgpath" column="imgPath"/>
+            </association>
+        </collection>
+    </resultMap>
+    <select id="orderdetailgoods" resultMap="withgoods">
+        SELECT
+        orders.*,
+        orderdetail.*,
+        goods.*,
+        orders.id as orders_id,
+        orderdetail.id as orderdetail_id,
+        goods.id as goods_id
+        FROM orders,orderdetail,goods
+        WHERE orders.id=orderdetail.orderId AND orderdetail.goodsId=goods.id
+        and orders.id=#{xxx}
+    </select>
+
+    <delete id="remove">
+        delete from orders where id=#{xxx}
+    </delete>
+
+</mapper>
