@@ -16,13 +16,15 @@
 
     queryRptChart();
     function clicked() {
-        alert("asdsadads");
+        alert("test");
         queryRptChart();
     }
 
     function queryRptChart() {
-        let xAxis;
-        let yAxis;
+        /*let xis;
+        let yis;*/
+        let xAxis = [];
+        let yAxis = [];
         $.ajax({
             url: "/getUserData.do",
             type: "post",
@@ -30,15 +32,30 @@
             dataType: "json",
             data: {},
             error: function () {
-                alert("asdasd")
+                alert("error....")
             },
             success: function (result) {
                 if (result) {
-                    xAxis = result.xaxis;
-                    yAxis = result.yaxis;
-                    alert(xAxis);
-                    alert(yAxis);
-                    console.log(result);
+                    for(let y in result){
+                        yAxis.push(result[y].registration);
+                        console.log(result[y].registration);
+                    }
+                    for(let x in result){
+                        xAxis.push(result[x].yearMonth);
+                        console.log(result[x].yearMonth);
+                    }
+                    /*let data={};
+                    data.yAxis=yAxis;
+                    data.xAxis=xAxis;
+                    //let myData1=$.toJSON(data1);
+                    let myData=JSON.stringify(data);
+                    console.log(yAxis);
+                    console.log(xAxis);
+                    console.log(myData);
+                    xis=myData.xAxis;
+                    yis=myData.yAxis;
+                    console.log(xis+"asd");
+                    console.log(yis+"asd");*/
                 }
             }
         });
@@ -71,7 +88,7 @@
             },
             series: [{
                 data: yAxis,
-                type: 'bar'
+                type: 'line'
             }]
         };
         myChart.setOption(option);
