@@ -29,6 +29,15 @@ public class User {
     private Date createtime;
 
     private List<Address> addresses;
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public Integer getId() {
         return id;

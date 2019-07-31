@@ -4,9 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>欢迎使用 IMOOC Cake 后台管理系统</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/theme.css">
     <link rel="stylesheet" type="text/css" href="../css/admin-forms.css">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath }/images/img/favicon.ico">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -153,11 +155,16 @@
 </style>
 
 <!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
 <script src="../js/jquery.min.js"></script>
 <script src="../js/jquery-ui.min.js"></script>
+<script src="../js/jquery.validate.min.js"></script>
+<script src="../js/additional-methods.min.js"></script>
+<script src="../js/jquery-ui-datepicker.min.js"></script>
+
 <!-- Theme Javascript -->
 <script src="../js/utility.js"></script>
-<script src="../js/demo/demo.js"></script>
+<script src="../js/demo.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/pages.js"></script>
 <!-- END: PAGE SCRIPTS -->

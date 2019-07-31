@@ -37,14 +37,17 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-9 text-right">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default light">
-                                            <i class="fa fa-chevron-left"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-default light">
-                                            <i class="fa fa-chevron-right"></i>
-                                        </button>
-                                    </div>
+                                    <form action="/listAllUser.do" method="post">
+                                        共${pageInfo.total}条 ${pageInfo.pageNum}/${pageInfo.pages}
+                                        <div class="btn-group">
+                                            <button type="submit" value="${pageInfo.pageNum-1}" class="btn btn-default light">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </button>
+                                            <button type="submit" value="${pageInfo.pageNum+1}" class="btn btn-default light">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -61,13 +64,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${users}" var="user">
+                                <c:forEach items="${pageInfo.list}" var="user">
                                     <tr>
                                         <td>${user.id}</td>
                                         <td>${user.username}</td>
                                         <td>${user.card}</td>
                                         <td>${user.status}</td>
-                                        <td><fmt:formatDate value="${user.createtime}" type="date" pattern="yyyy-MM-dd HH:mm"/></td>
+                                        <td><fmt:formatDate value="${user.createtime}" type="date"
+                                                            pattern="yyyy-MM-dd HH:mm"/></td>
                                         <td>
                                             <button type="button" class="btn btn-primary btn-sm"
                                                     onclick="javascript:window.location.href='/userDetail.do?id=${user.id}';">
@@ -98,16 +102,21 @@
 </div>
 <style>
     /* demo page styles */
-    body { min-height: 2300px; }
+    body {
+        min-height: 2300px;
+    }
 
     .content-header b,
     .admin-form .panel.heading-border:before,
     .admin-form .panel .heading-border:before {
         transition: all 0.7s ease;
     }
+
     /* responsive demo styles */
     @media (max-width: 800px) {
-        .admin-form .panel-body { padding: 18px 12px; }
+        .admin-form .panel-body {
+            padding: 18px 12px;
+        }
     }
 </style>
 

@@ -1,5 +1,6 @@
 package com.neu.testservice;
 
+import com.neu.bean.Address;
 import com.neu.bean.User;
 import com.neu.service.UserService;
 import org.junit.Test;
@@ -19,6 +20,17 @@ public class TestUser {
     /**
      * 测试UserMapper
      */
+    @Test
+    public void testUser(){
+        User user = new User();
+        user.setId(1);
+        user.setSex("nan");
+        user.setCreatetime(new Date());
+        Address address = new Address();
+        address.setReceiver("asdsad");
+        user.setAddress(address);
+        System.out.println(user);
+    }
     @Test
     public void testAddUser() {
         User user = new User();

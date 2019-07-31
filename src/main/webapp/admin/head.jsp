@@ -1,11 +1,38 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header class="navbar navbar-fixed-top navbar-shadow">
-    <div class="navbar-branding">
-        <a class="navbar-brand" href="../index.html">
-            <H3>电子商务后台管理系统</H3>
-        </a>
-        <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
-    </div>
+    <header class="navbar navbar-fixed-top navbar-shadow">
+        <div class="navbar-branding">
+            <a class="navbar-brand" href="#">
+                <b>油画商城</b>
+            </a>
+            <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown menu-merge">
+                <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
+                    <img src="${pageContext.request.contextPath }/images/img/avatars/5.jpg" alt="avatar" class="mw30 br64">
+                    <span class="hidden-xs pl15"> ${ existUser.username } </span>
+                    <span class="caret caret-tp hidden-xs"></span>
+                </a>
+                <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
+                    <li class="list-group-item">
+                        <a href="#" class="animated animated-short fadeInUp">
+                            <span class="fa fa-user"></span> 个人信息
+                            <span class="label label-warning"></span>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="animated animated-short fadeInUp">
+                            <span class="fa fa-gear"></span> 设置密码 </a>
+                    </li>
+                    <li class="dropdown-footer">
+                        <a href="/loginout.do" class="">
+                            <span class="fa fa-power-off pr5"></span> 退出 </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
 </header>
 <aside id="sidebar_left" class="nano nano-light affix">
     <div class="sidebar-left-content nano-content">
@@ -16,7 +43,7 @@
                         <img src="../images/head.jpg" class="img-responsive">
                     </a>
                     <div class="media-body">
-                        <div class="media-author">管理员:${existAdmin.supername}</div>
+                        <div class="media-author">管理员:${sessionScope.user.supername}</div>
                         <div class="media-links">
                             <a href="/loginout.do">退出</a>
                         </div>

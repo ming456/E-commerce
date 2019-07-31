@@ -11,5 +11,18 @@
     <mvc:default-servlet-handler/>
     <!-- 如果只有 mvc:default-servlet-handler, 注解类失效, 还需要配置 annotation-driven -->
     <mvc:annotation-driven/>
+    <!--支持Json的Bean,配置ViewResolver。 可以用多个ViewResolver。 使用order属性排序。 InternalResourceViewResolver放在最后。 -->
+    <bean
+            class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1" />
 
+        <property name="defaultViews">
+            <list>
+                <!-- JSON View -->
+                <bean
+                        class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+                </bean>
+            </list>
+        </property>
+    </bean>
 </beans>
