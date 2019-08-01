@@ -10,8 +10,8 @@
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown menu-merge">
                 <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-                    <img src="${pageContext.request.contextPath }/images/img/avatars/5.jpg" alt="avatar" class="mw30 br64">
-                    <span class="hidden-xs pl15"> ${ existUser.username } </span>
+                    <%--<img src="${pageContext.request.contextPath }/images/img/avatars/5.jpg" alt="avatar" class="mw30 br64">--%>
+                    <span class="hidden-xs pl15"></span>
                     <span class="caret caret-tp hidden-xs"></span>
                 </a>
                 <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
@@ -43,7 +43,7 @@
                         <img src="../images/head.jpg" class="img-responsive">
                     </a>
                     <div class="media-body">
-                        <div class="media-author">管理员:${sessionScope.user.supername}</div>
+                        <div class="media-author">管理员:${existAdmin.supername}</div>
                         <div class="media-links">
                             <a href="/loginout.do">退出</a>
                         </div>

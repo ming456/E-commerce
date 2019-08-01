@@ -67,4 +67,26 @@ VALUES(#{username},#{password},#{tipsquestion},#{tipsanswer},#{realname},#{card}
     <select id="selectUserByCardP" resultType="com.neu.bean.User">
         select * from `user` where card like "%"#{card}"%"
     </select>
+
+    <resultMap id="withaddress" type="User">
+        <id property="id" column="id"/>
+        <result property="username" column="userName"/>
+        <result property="realname" column="realName"/>
+        <result property="sex" column="sex"/>
+        <result property="email" column="email"/>
+        <association property="address" javaType="Address">
+            <id property="id" column="address_id"/>
+            <result property="phone" column="phone"/>
+            <result property="userid" column="userId"/>
+            <result property="receiver" column="receiver"/>
+            <result property="zipcode" column="zipcode"/>
+            <result property="site" column="site"/>
+        </association>
+    </resultMap>
+    <select id="selectById" resultMap="withaddress">
+        select user.*,address.*,
+        address.id as address_id
+        from user,address
+        where address.userId=user.id and address.states=0 and user.id=#{xxx}
+    </select>
 </mapper>

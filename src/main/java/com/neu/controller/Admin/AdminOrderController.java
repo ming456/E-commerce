@@ -66,15 +66,10 @@ public class AdminOrderController {
      */
     @RequestMapping("/findUser.do")
     public String findUser(HttpServletRequest request){
-        User user=(User) request.getSession().getAttribute("user");
-        if(user==null){
             int id=Integer.parseInt(request.getParameter("id"));
-            User user1=adminOrderService.findUser(id);
-            request.getSession().setAttribute("user",user1);
-        }else{
+            User user=adminOrderService.findUser(id);
             request.getSession().setAttribute("user",user);
-        }
-        return "admin/order_user.jsp";
+            return "admin/order_user.jsp";
     }
 
     /**

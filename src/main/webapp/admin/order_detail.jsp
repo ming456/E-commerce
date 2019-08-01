@@ -63,7 +63,6 @@
                                     <th class="hidden-xs">物品单价(元)</th>
                                     <th class="hidden-xs">总金额(单价*数量)</th>
                                     <th class="hidden-xs">图片</th>
-                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -81,9 +80,6 @@
                                             <td>${orderdetails.goods.price}x${orderdetails.goodsnum}</td>
                                             <td>￥${orderdetails.pay}</td>
                                             <td><img src="${orderdetails.goods.imgpath}" width="100px" height="80px"></td>
-                                        <td>
-                                            <a href="#">查看</a>
-                                        </td>
                                     </tr>
                                     </c:forEach>
                                 </tbody>
