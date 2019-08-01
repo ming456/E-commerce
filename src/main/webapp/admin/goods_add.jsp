@@ -1,16 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: ouxiaowen
-  Date: 2019-07-29
-  Time: 08:49
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>东软电子商务后台管理系统</title>
+    <title>E-commerce后台管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/theme.css">
     <link rel="stylesheet" type="text/css" href="../css/admin-forms.css">
@@ -117,7 +110,7 @@
                             </div>
                             <div class="panel-footer text-right">
                                 <button type="submit" class="button"> 保存 </button>
-                                <button type="button" class="button" onclick="javascript:window.location.href='cake_list.html';"> 返回 </button>
+                                <button type="button" class="button" onclick="javascript:window.history.go(-1);"> 返回 </button>
                             </div>
                         </form>
                     </div>

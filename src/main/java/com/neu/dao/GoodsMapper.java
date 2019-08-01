@@ -27,4 +27,5 @@ public interface GoodsMapper {
     Goods findGoodsById(int id);
 
     int updateGoods(Goods goods);
+
 }

@@ -1,5 +1,7 @@
 package com.neu.controller.Admin;
 
+import com.neu.bean.Data.GoodsData;
+import com.neu.bean.Data.OrdersData;
 import com.neu.bean.Data.UserData;
 import com.neu.service.DataAnalysisService;
 import com.neu.service.UserService;
@@ -27,4 +29,17 @@ public class AnalysisController {
         return userDatas;
     }
 
+    @RequestMapping("/getGoodsData.do")
+    public @ResponseBody List getGoodsChart()
+    {
+        List<GoodsData> goodsData = dataAnalysisService.getGoodsData();
+        return goodsData;
+    }
+
+    @RequestMapping("/getOrdersData.do")
+    public @ResponseBody List getOrdersChart()
+    {
+        List<OrdersData> odersData = dataAnalysisService.getOrdersData();
+        return odersData;
+    }
 }

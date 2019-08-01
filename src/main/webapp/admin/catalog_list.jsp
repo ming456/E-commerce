@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>欢迎使用 IMOOC Cake 后台管理系统</title>
+    <title>欢迎使用 E-commerce 后台管理系统</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/theme.css">
@@ -40,13 +40,13 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-9 text-right">
-                                    <form action="/admin/Cake/list.do" method="post">
-                                        共${pageInfo.total}条 ${pageInfo.pageNum}/${pageInfo.pages}
+                                    <form action="#" method="post">
+                                        <%--共${pageInfo.total}条 ${pageInfo.pageNum}/${pageInfo.pages}--%>
                                         <div class="btn-group">
-                                            <button type="submit" name="pageNum" value="${pageInfo.pageNum-1}" class="btn btn-default light">
+                                            <button type="submit" name="pageNum" <%--value="${pageInfo.pageNum-1}"--%> class="btn btn-default light">
                                                 <i class="fa fa-chevron-left"></i>
                                             </button>
-                                            <button type="submit" name="pageNum" value="${pageInfo.pageNum+1}" class="btn btn-default light">
+                                            <button type="submit" name="pageNum" <%--value="${pageInfo.pageNum+1}"--%> class="btn btn-default light">
                                                 <i class="fa fa-chevron-right"></i>
                                             </button>
                                         </div>
@@ -76,7 +76,7 @@
                                     <td>${cat1.typename}</td>
                                     <td>${cat1.desciption}</td>
                                     <td>
-                                        <a href="/catelog/delete.do?id=${cat1.id}">删除</a>
+                                        <a class="btn btn-primary btn-sm" href="/catelog/delete.do?id=${cat1.id}">删除</a>
                                     </td>
                                 </tr>
                                     <c:forEach items="${cat1.children}" var="cat2">
@@ -90,7 +90,7 @@
                                             <td style="padding-left: 50px;">${cat2.typename}</td>
                                             <td>${cat2.desciption}</td>
                                             <td>
-                                                <a href="/catelog/delete.do?id=${cat2.id}">删除</a>
+                                                <a class="btn btn-primary btn-sm" href="/catelog/delete.do?id=${cat2.id}">删除</a>
                                             </td>
                                         </tr>
                                         <c:forEach items="${cat2.children}" var="cat3">
@@ -104,7 +104,7 @@
                                                 <td style="padding-left: 100px;">${cat3.typename}</td>
                                                 <td>${cat3.desciption}</td>
                                                 <td>
-                                                    <a href="/catelog/delete.do?id=${cat3.id}">删除</a>
+                                                    <a class="btn btn-primary btn-sm" href="/catelog/delete.do?id=${cat3.id}">删除</a>
                                                 </td>
                                             </tr>
                                         </c:forEach>

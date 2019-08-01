@@ -29,7 +29,7 @@
         <section id="content">
             <div class="admin-form theme-info mw500" id="login">
                 <div class="content-header">
-                    <h1> IMOOC Cake</h1>
+                    <h1> E-commerce</h1>
                     <p class="lead">欢迎使用电子商务后台管理管理系统</p>
                 </div>
                 <div class="panel mt30 mb25">

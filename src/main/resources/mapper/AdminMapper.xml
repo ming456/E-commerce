@@ -27,4 +27,7 @@
     <select id="selectAdmin" resultType="com.neu.bean.Admin">
         SELECT * from admin where superName=#{supername} and password=#{password}
     </select>
+    <select id="findAdmin" resultType="com.neu.bean.Admin">
+        select * from admin where superName=#{username} and password=#{password} and access=0;
+    </select>
 </mapper>

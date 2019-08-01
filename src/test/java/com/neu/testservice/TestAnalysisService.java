@@ -1,5 +1,6 @@
 package com.neu.testservice;
 
+import com.neu.bean.Data.OrdersData;
 import com.neu.bean.Data.UserData;
 import com.neu.service.DataAnalysisService;
 import org.junit.Test;
@@ -26,6 +27,14 @@ public class TestAnalysisService {
             yAxis.add(userData.getRegistration());
             System.out.println(userData);
         }
-
+    }
+    @Test
+    public void testOrdersData() {
+        List<OrdersData> ordersDatas = dataAnalysisService.getOrdersData();
+        List<String> xAxis = new ArrayList<String>();
+        List<String> yAxis = new ArrayList<String>();
+        for (OrdersData order:ordersDatas) {
+            System.out.println(order);
+        }
     }
 }

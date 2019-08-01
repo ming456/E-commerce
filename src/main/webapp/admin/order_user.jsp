@@ -38,13 +38,13 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-9 text-right">
-                                    <form action="cake_list.html" method="post">
-                                        共35条 1/2
+                                    <form action="#" method="post">
+                                        共5条 1/1
                                         <div class="btn-group">
-                                            <button type="submit" name="pageNum" value="0" class="btn btn-default light">
+                                            <button type="submit" name="pageNum" <%--value="0"--%> class="btn btn-default light">
                                                 <i class="fa fa-chevron-left"></i>
                                             </button>
-                                            <button type="submit" name="pageNum" value="2" class="btn btn-default light">
+                                            <button type="submit" name="pageNum" <%--value="2"--%> class="btn btn-default light">
                                                 <i class="fa fa-chevron-right"></i>
                                             </button>
                                         </div>
@@ -81,7 +81,7 @@
                                         <td>${sessionScope.user.address.phone}</td>
                                         <td>${sessionScope.user.address.site}</td>
                                         <td>
-                                            <a href="/toedit.do">修改</a>
+                                            <a class="btn btn-primary btn-sm" href="/toedit.do">修改</a>
                                         </td>
                                     </tr>
                                 </tbody>

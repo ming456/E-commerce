@@ -14,7 +14,7 @@
     <link href="${pageContext.request.contextPath }/css/before/common.css" rel="stylesheet" type="text/css" />
     <link href="${pageContext.request.contextPath }/css/before/daohang.css" rel="stylesheet" type="text/css" />
     <link href="${pageContext.request.contextPath }/css/before/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script type="text/javascript">
         function goCart() {
             document.putcartform.submit();
@@ -41,7 +41,7 @@
                             <a href="register.html" target="_top">注册</a>
                         </p>
                     </td>
-                    <td><span class="xx">|</span><a href="userCenter.html" target="_top">用户中心</a><span
+                    <td><span class="xx">|</span><a href="/userCenter.do" target="_top">用户中心</a><span
                             class="xx">|</span></td>
                     <!-- 没有登录 -->
                     <td><a href="login.html" target="_top">退出</a><span
@@ -54,7 +54,7 @@
     <!--logo 搜索-->
     <div class="all_zong_logo">
         <div class="all_zong_logo2">
-            <img src="/before/image/mylogo.png" />
+            <img src="${pageContext.request.contextPath }/images/before/mylogo.png" />
         </div>
         <div class="back_search">
             <div class="back_search_red">
@@ -70,19 +70,6 @@
         </div>
         <!--end-->
     </div>
-    <!-- <script type="text/javascript">
-       function searchclick(){
-          //var mykeyvalue=$('#mykey').val();
-           $.ajax({
-
-               url:"${pageContext.request.contextPath }/searchgoods.do",
-               type:"POST",
-               data:"searchvalue="+mykeyvalue
-
-           });
-       }
-
-    </script>-->
     <!--红色 导航-->
     <div class="skin_a">
         <div class="front_daohangbj">
@@ -91,11 +78,11 @@
                     <ul>
                         <li class="backbj"><a href="/Browse.do" target="_top">首页</a></li>
                         <!-- 显示商品类型 -->
-                        <li><a href="index.html" target="_top">水果</a></li>
-                        <li><a href="index.html" target="_top">服装</a></li>
+                        <li><a href="#" target="_top">水果</a></li>
+                        <li><a href="#" target="_top">服装</a></li>
                         <li class="buy">
                             <p class="car">
-                                <a href="cart.html" target="_top">购物车</a>
+                                <a href="/selectCart.do" target="_top">购物车</a>
                             </p>
                         </li>
                     </ul>
@@ -105,17 +92,17 @@
     </div>
     <!--红色 导航 end-->
 </div>
-<form  name="putcartform" method="post">
+<form  action="/putCart.do" name="putcartform" method="post">
     <div class="blank"></div>
     <div class="block clearfix">
         <div class="location ared">
-            当前位置：<a href="/before/Browse.jsp">首页</a> > <a href="#">商品详情</a>
+            当前位置：<a href="${pageContext.request.contextPath }/before/Browse.jsp">首页</a> > <a href="#">商品详情</a>
         </div>
         <div class="blank"></div>
         <div id="goodsInfo">
             <div class="imgInfo">
-                <input type="hidden" name="id"
-                       value="1"/><img
+                <input type="hidden" id="goodsId" name="goodsId"
+                       value="${good.getId()}"/><img
                     src="${good.getImgpath()}"
                     width="230px" height="230px" />
             </div>
@@ -138,7 +125,7 @@
                 </ul>
             </div>
             <p class="bottom10 top5">
-                <img src="/before/image/goods_ann2.gif" style="cursor: pointer"
+                <img src="${pageContext.request.contextPath }/images/before/goods_ann2.gif" style="cursor: pointer"
                      onclick="goCart()" />
                 &nbsp;&nbsp;
             </p>

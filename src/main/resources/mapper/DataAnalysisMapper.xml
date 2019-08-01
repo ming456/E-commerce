@@ -5,4 +5,17 @@
     <select id="selectUserData" resultType="com.neu.bean.Data.UserData">
         SELECT count(*) as 'registration',DATE_FORMAT(createTime,'%Y-%m') as 'yearMonth' from `user` GROUP BY DATE_FORMAT(createTime,'%Y-%m')
     </select>
+
+
+    <select id="selectGoodsData" resultType="GoodsData">
+        select type.typeName as 'goodsname',sum(goods.classify) as 'sumGoods'
+        from goods,type
+        where goods.classify=type.id
+        GROUP BY classify
+    </select>
+    <select id="selectOrdersData" resultType="com.neu.bean.Data.OrdersData">
+    SELECT orderStatus ,COUNT(*) num FROM orders WHERE orderStatus=0
+    UNION
+    SELECT orderStatus ,COUNT(*) num FROM orders WHERE orderStatus=1
+    </select>
 </mapper>

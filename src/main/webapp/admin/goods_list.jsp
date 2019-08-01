@@ -1,11 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: ouxiaowen
-  Date: 2019-07-28
-  Time: 14:42
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -14,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>东软电子商务后台管理系统</title>
+    <title>E-commerce后台管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/theme.css">
     <link rel="stylesheet" type="text/css" href="../css/admin-forms.css">
@@ -97,11 +91,12 @@
                                         <td>${goods.count}</td>
                                         <td>${goods.title}</td>
                                         <td><img src="${goods.imgpath}" width="100" height="80"></td>
-                                        <td>${goods.createtime}</td>
+                                        <td><fmt:formatDate value="${goods.createtime}" type="date"
+                                                            pattern="yyyy-MM-dd"/></td>
                                         <td>
-                                            <a href="/infoGoods.do?id=${goods.id}">查看</a>
-                                            <a href="/editGoods.do?id=${goods.id}">编辑</a>
-                                            <a href="/delGoods.do?id=${goods.id}">删除</a>
+                                            <a class="btn btn-primary btn-sm" href="/infoGoods.do?id=${goods.id}">查看</a>
+                                            <a class="btn btn-primary btn-sm" href="/editGoods.do?id=${goods.id}">编辑</a>
+                                            <a class="btn btn-primary btn-sm" href="/delGoods.do?id=${goods.id}">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -130,7 +125,6 @@
         .admin-form .panel-body { padding: 18px 12px; }
     }
 </style>
-
 <style>
     .ui-datepicker select.ui-datepicker-month,
     .ui-datepicker select.ui-datepicker-year {

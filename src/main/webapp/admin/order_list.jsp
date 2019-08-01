@@ -89,9 +89,9 @@
                                     <td>${order.user.sex}</td>
                                     <td>${order.totalpay}</td>
                                     <td>
-                                        <a href="/findById.do?id=${order.id}">查看明细</a>
-                                        <a href="/findUser.do?id=${order.userid}">查看用户</a>
-                                        <a href="/delete.do?id=${order.id}">删除订单</a>
+                                        <a class="btn btn-primary btn-sm" href="/findById.do?id=${order.id}">明细</a>
+                                        <a class="btn btn-primary btn-sm" href="/findUser.do?id=${order.userid}">查看用户</a>
+                                        <a class="btn btn-primary btn-sm" href="/delete.do?id=${order.id}">删除</a>
                                     </td>
                                 </tr>
                                 </c:forEach>

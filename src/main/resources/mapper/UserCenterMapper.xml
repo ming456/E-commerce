@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neu.dao.UserCenterMapper">
+    <!--游客查询订单-->
+    <select id="SelectOrder" resultType="map">
+        select  od.orderId orderid,
+        gs.goodName goodname，
+        od.goodsNum goodsnum,
+        gs.price,gs.pay,od1.orderStatus
+        from orderdetail od ,goods gs,orders od1
+        where createTime between #{datatime1} and #{datatime2}
+        and od.orderId=#{id}
+    </select>
+    <!--用户查询订单，订单号为空-->
+    <select id="SelectOrder1" resultType="map">
+        select  od.orderId orderid,
+        gs.goodName goodname，
+        od.goodsNum goodsnum,
+        gs.price,
+        gs.pay,
+        od1.orderStatus
+        from orderdetail od ,
+        goods gs,
+        orders od1，user us
+        where od1.createTime between #{datatime1} and #{datatime2}
+        and us.id=#{id}
+    </select>
+    <!--用户查询订单，订单号不为空-->
+    <select id="SelectOrder2" resultType="map">
+        select  od.orderId orderid,
+        gs.goodName goodname，
+        od.goodsNum goodsnum,
+        gs.price,
+        gs.pay,
+        od1.orderStatus
+        from orderdetail od ,goods gs,orders od1
+        where od1.createTime between #{datatime1} and #{datatime2}
+         and od.orderId=#{id}
+    </select>
+    <!--订单详情-->
+    <select id="OrderDetail" resultType="map">
+        select od1.orderNum,
+        od.orderId orderid,
+        gs.title,
+        od.goodsId goodsid,
+        od.goodsNum goodsnum,
+        gs.goodsName,gs.imgpath,
+        gs.price,od.pay
+        from orderdetail od,orders od1,goods gs
+        where od.orderId=od1.id and gs.id=od.goodsId
+        and od1.id=#{id}
+    </select>
+    <!--通过用户id来查寻所有订单-->
+    <select id="myOrder"  resultType="map" parameterType="Integer">
+		select id,orderNum,totalPay,userId,orderStatus,createTime from orders where userId = #{bid}
+	</select>
+</mapper>

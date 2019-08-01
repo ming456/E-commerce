@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>欢迎使用 IMOOC Cake 后台管理系统</title>
+    <title>欢迎使用 E-commerce 后台管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/theme.css">
     <link rel="stylesheet" type="text/css" href="../css/admin-forms.css">
@@ -79,7 +79,7 @@
                                 <div class="panel-footer text-right">
                                     <button type="button" class="button" id="add_item_button"> 添加 </button>
                                     <button type="submit" class="button"> 保存 </button>
-                                    <button type="button" class="button" onclick="javascript:window.location.href='catalog_list.html';"> 返回 </button>
+                                    <button type="button" class="button" onclick="javascript:window.history.go(-1);"> 返回 </button>
                                 </div>
                             </div>
                         </form>

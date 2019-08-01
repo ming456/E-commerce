@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>欢迎使用 IMOOC Cake 后台管理系统</title>
+    <title>欢迎使用 E-commerce 后台管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/theme.css">
     <link rel="stylesheet" type="text/css" href="../css/admin-forms.css">
@@ -38,7 +38,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-9 text-right">
-                                    <form action="cake_list.html" method="post">
+                                    <form action="#" method="post">
                                         共35条 1/2
                                         <div class="btn-group">
                                             <button type="submit" name="pageNum" value="0" class="btn btn-default light">

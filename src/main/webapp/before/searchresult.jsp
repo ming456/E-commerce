@@ -15,7 +15,7 @@
     <link href="${pageContext.request.contextPath }/css/before/common.css" rel="stylesheet" type="text/css" />
     <link href="${pageContext.request.contextPath }/css/before/daohang.css" rel="stylesheet" type="text/css" />
     <link href="${pageContext.request.contextPath }/css/before/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 </head>
 <body>
 <div class="all_zong">
@@ -26,19 +26,27 @@
                 <tr>
                     <td>
                         <p id="content">
-                            <a href="login.html" target="_top">登录</a>
+                            <c:if test="${user!=null}">欢迎 ${user.username}</c:if>
+                            <c:if test="${user==null}"><a href="before/userlogin.jsp" target="_top">登录</a></c:if>
                         </p>
                     </td>
                     <td>
                         <p>
-                            <a href="register.html" target="_top">注册</a>
+                            <c:if test="${user==null}">
+                                <a href="before/register.jsp" target="_top">注册</a>
+                            </c:if>
                         </p>
                     </td>
-                    <td><span class="xx">|</span><a href="userCenter.html" target="_top">用户中心</a><span
+                    <c:if test="${user!=null}"><td><span class="xx">|</span><a href="/usermanage.do" target="_top">个人中心</a><span
+                            class="xx">|</span></td></c:if>
+                    <td><span class="xx">|</span><a href="/userCenter.do" target="_top">订单管理</a><span
                             class="xx">|</span></td>
                     <!-- 没有登录 -->
-                    <td><a href="login.html" target="_top">退出</a><span
-                            class="xx">|</span></td>
+                    <<!-- 没有登录 -->
+                    <c:if test="${user!= null}">
+                        <td><a href="/userlogout.do">退出</a><span
+                                class="xx">|</span></td>
+                    </c:if>
                 </tr>
             </table>
         </div>
@@ -47,7 +55,7 @@
     <!--logo 搜索-->
     <div class="all_zong_logo">
         <div class="all_zong_logo2">
-            <img src="/before/image/mylogo.png" />
+            <img src="${pageContext.request.contextPath }/images/before/mylogo.png" />
         </div>
         <div class="back_search">
             <div class="back_search_red">
@@ -63,19 +71,6 @@
         </div>
         <!--end-->
     </div>
-    <!-- <script type="text/javascript">
-       function searchclick(){
-          //var mykeyvalue=$('#mykey').val();
-           $.ajax({
-
-               url:"${pageContext.request.contextPath }/searchgoods.do",
-               type:"POST",
-               data:"searchvalue="+mykeyvalue
-
-           });
-       }
-
-    </script>-->
     <!--红色 导航-->
     <div class="skin_a">
         <div class="front_daohangbj">
@@ -84,11 +79,11 @@
                     <ul>
                         <li class="backbj"><a href="/Browse.do" target="_top">首页</a></li>
                         <!-- 显示商品类型 -->
-                        <li><a href="index.html" target="_top">水果</a></li>
-                        <li><a href="index.html" target="_top">服装</a></li>
+                        <li><a href="#" target="_top">水果</a></li>
+                        <li><a href="#" target="_top">服装</a></li>
                         <li class="buy">
                             <p class="car">
-                                <a href="cart.html" target="_top">购物车</a>
+                                <a href="/selectCart.do" target="_top">购物车</a>
                             </p>
                         </li>
                     </ul>
@@ -100,7 +95,7 @@
 </div>
 <div class="blank"></div>
 <div class="block clearfix">
-    <div class="location ared">当前位置： <a href="Browse.jsp">首页</a> > 搜索结果</div>
+    <div class="location ared">当前位置： <a href="/Browse.do">首页</a> > 搜索结果</div>
     <div class="blank"></div>
     <div>
         <div class="nFlowBox">
@@ -139,11 +134,5 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    <!--详情页点击-->
-    function trans(goodid){
-
-    }
-</script>
 </body>
 </html>

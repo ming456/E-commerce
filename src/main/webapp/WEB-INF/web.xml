@@ -48,5 +48,17 @@
         <servlet-name>springmvc</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
-
+    <!-- Session配置 -->
+    <!-- 将超时时间设置为1年 -->
+    <session-config>
+        <!--最小单位是分钟-->
+        <session-timeout>525600</session-timeout>
+        <cookie-config>
+            <!--最小单位是秒-->
+            <max-age>31536000</max-age>
+        </cookie-config>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>/Browse.do</welcome-file>
+    </welcome-file-list>
 </web-app>

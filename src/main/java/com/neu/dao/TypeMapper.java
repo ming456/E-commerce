@@ -13,4 +13,6 @@ public interface TypeMapper {
     List<Type> findAllType2(int id);
 
     void addTypeBath(@Param("typelist") List<Type> list);
+
+
 }

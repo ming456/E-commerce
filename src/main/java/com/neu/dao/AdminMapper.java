@@ -23,4 +23,6 @@ public interface AdminMapper {
    List<Admin> selectAdminLikeName(String superName);
 
    Admin selectAdmin(@Param("supername") String supername, @Param("password") String password);
+
+   Admin findAdmin(@Param("username") String username, @Param("password") String password);
 }

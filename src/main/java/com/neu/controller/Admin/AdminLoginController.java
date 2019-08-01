@@ -18,7 +18,7 @@ public class AdminLoginController {
      * 去登录页面
      * @return
      */
-    @RequestMapping("/toLogin.do")
+    @RequestMapping("/tologin.do")
     public String toLogin(HttpServletRequest request){
         return "/admin/login.jsp";
     }
@@ -39,8 +39,9 @@ public class AdminLoginController {
             System.out.println("帐号" + username + "密码" + password);
             request.setAttribute("existAdmin",existAdmin);
             //权限判定
+            session.setMaxInactiveInterval(30*60);
             session.setAttribute("user",existAdmin);
-            return "/findType.do";
+            return "/findGoods.do";
         }else{
             //登录失败
             request.setAttribute("msg","帐号密码不正确");
@@ -53,7 +54,7 @@ public class AdminLoginController {
     @RequestMapping("/loginout.do")
     public String loginOut(HttpSession session){
         session.invalidate();
-        return "/toLogin.do";
+        return "/tologin.do";
     }
 
 }

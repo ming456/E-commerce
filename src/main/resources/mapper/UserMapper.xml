@@ -87,6 +87,12 @@ VALUES(#{username},#{password},#{tipsquestion},#{tipsanswer},#{realname},#{card}
         select user.*,address.*,
         address.id as address_id
         from user,address
-        where address.userId=user.id and address.states=0 and user.id=#{xxx}
+        where address.userId=user.id and address.status=0 and user.id=#{xxx}
     </select>
+    <select id="selectUserByNick2" resultType="int">
+        select count(*) from `user` where userName=#{userName}
+    </select>
+    <update id="updatePassword" >
+        update `user` set password=#{psw} where username=#{username}
+    </update>
 </mapper>
