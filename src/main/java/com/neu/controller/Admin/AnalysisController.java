@@ -21,20 +21,10 @@ public class AnalysisController {
     DataAnalysisService dataAnalysisService;
 
     @RequestMapping("/getUserData.do")
-    @ResponseBody
-    public Model getRptChartTest(Model model)
+    public @ResponseBody List getRptChartTest()
     {
         List<UserData> userDatas = dataAnalysisService.getUserData();
-        List<String> xAxis = new ArrayList<String>();
-        List<String> yAxis = new ArrayList<String>();
-        for (UserData userData:userDatas) {
-            xAxis.add(userData.getYearMonth());
-            yAxis.add(userData.getRegistration());
-            System.out.println(userData);
-        }
-        model.addAttribute("xaxis", xAxis);
-        model.addAttribute("yaxis", yAxis);
-        return model;
+        return userDatas;
     }
 
 }
