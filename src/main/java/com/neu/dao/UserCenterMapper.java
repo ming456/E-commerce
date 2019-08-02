@@ -1,9 +1,4 @@
 package com.neu.dao;
-
-import com.alibaba.druid.util.MySqlUtils;
-import com.neu.util.MyUtil;
-import org.springframework.ui.Model;
-
 import java.util.List;
 import java.util.Map;
 
@@ -20,14 +15,13 @@ public interface UserCenterMapper {
      * @param map
      * @return
      */
-    public List<Map<String,Object>> SelectOrder1(Map<String, Object> map);
-
+    public List<Map<String,Object>> SelectOrdered(Map<String, Object> map);
     /**
-     * 用户通过时间段来查询订单，订单号不为空
+     * 用户通过时间段来查询订单，订单号不空（自己的订单）
      * @param map
      * @return
      */
-    public List<Map<String,Object>> SelectOrder2(Map<String, Object> map);
+    public List<Map<String,Object>> SelectOrdered1(Map<String, Object> map);
 
     /**
      * 通过订单号查询，来实现订单详情
@@ -38,7 +32,7 @@ public interface UserCenterMapper {
 
     /**
      * 通过用户ID来查询用户所有的订单
-     * @param id,model
+     * @param bid,model
      * @return
      */
     public List<Map<String, Object>> myOrder(Integer bid);

@@ -41,8 +41,17 @@
                             <a href="register.html" target="_top">注册</a>
                         </p>
                     </td>
+<c:if test="${user!=null}">
                     <td><span class="xx">|</span><a href="/userCenter.do" target="_top">用户中心</a><span
                             class="xx">|</span></td>
+</c:if>
+                    <c:if test="${user!=null}">
+                        <td><span class="xx">|</span><a href="before/userCenter.jsp" target="_top">订单管理</a><span
+                                class="xx">|</span></td>
+                    </c:if>
+                    <c:if test="${user==null}">
+                        <td><span class="xx">|</span><a href="before/userCenterone.jsp" target="_top">订单管理</a><span
+                                class="xx">|</span></td></c:if>
                     <!-- 没有登录 -->
                     <td><a href="login.html" target="_top">退出</a><span
                             class="xx">|</span></td>

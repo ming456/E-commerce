@@ -131,6 +131,6 @@
 	</delete>
     <!-- 支付订单 -->
     <update id="pay" parameterType="Integer">
-		update orders set status=1 where id=#{ordersn}
+		update orders set orderStatus=1 where id=#{ordersn}
 	</update>
 </mapper>

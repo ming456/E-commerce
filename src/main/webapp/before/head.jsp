@@ -31,14 +31,19 @@
 					<td>
 						<p>
 							<c:if test="${user==null}">
-							<a href="register.jsp" target="_top">注册</a>
+							<a href="before/register.jsp" target="_top">注册</a>
 							</c:if>
 						</p>
 					</td>
 					<c:if test="${user!=null}"><td><span class="xx">|</span><a href="/usermanage.do" target="_top">个人中心</a><span
 							class="xx">|</span></td></c:if>
-					<td><span class="xx">|</span><a href="/userCenter.do" target="_top">订单管理</a><span
+                    <c:if test="${user!=null}">
+					<td><span class="xx">|</span><a href="before/userCenter.jsp" target="_top">订单管理</a><span
 							class="xx">|</span></td>
+					</c:if>
+					<c:if test="${user==null}">
+						<td><span class="xx">|</span><a href="before/userCenterone.jsp" target="_top">订单管理</a><span
+								class="xx">|</span></td></c:if>
 					<!-- 没有登录 -->
                     <c:if test="${user!= null}">
 					<td><a href="/userlogout.do" target="_top">退出</a><span
@@ -76,8 +81,8 @@
 					<ul>
 						<li class="backbj"><a href="/Browse.do" target="_top">首页</a></li>
 						<!-- 显示商品类型 -->
-						<li><a href="#" target="_top">水果</a></li>
-						<li><a href="#" target="_top">服装</a></li>
+						<li><a href="index.html" target="_top">水果</a></li>
+						<li><a href="index.html" target="_top">服装</a></li>
 						<li class="buy">
 							<p class="car">
 								<a href="/selectCart.do" target="_top">购物车</a>

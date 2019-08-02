@@ -31,9 +31,10 @@
         <div class="nFlowBox">
             <table>
                 <tr>
-                    <form action="/userCenter.do" method="post">
+                    <form action="/userCenterone.do" method="post">
                     <th>
-                        <label>订单号：<input type="text" name="orderNum"/></label>
+                        ${message}
+                        <label>订单号：<input type="text" name="orderNum" placeholder="订单号不能为空"/></label>
                     </th>
                     <th>
                         <label>时间段：<input type="date" name="datatime1"/>&nbsp;至&nbsp;<input type="date" name="datatime2"/></label>
@@ -66,7 +67,7 @@
                         <td bgcolor="#ffffff"  align="center">
                             <c:if test="${mo.orderStatus == 0}" >
                                 未付款&nbsp;&nbsp;
-                                <a style="text-decoration: none;" class="f6" href="/pay.do?ordersn=${mo.id}">去支付</a>
+                                <a style="text-decoration: none;" class="f6" href="order/pay?ordersn=${mo.id}">去支付</a>
                             </c:if>
                             <c:if test="${mo.orderStatus == 1}" >已付款</c:if>
                         </td>

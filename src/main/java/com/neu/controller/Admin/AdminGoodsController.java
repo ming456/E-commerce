@@ -46,22 +46,24 @@ public class AdminGoodsController {
     public String toAdd(HttpServletRequest request) {
         List<Type> list = adminTypeService.findAllType2();
         System.out.println(list);
-        request.setAttribute("typeslist", list);
+        request.getSession().setAttribute("typesList", list);
+        request.setAttribute("typesList", list);
         return "admin/goods_add.jsp";
     }
 
     //按保存按钮后 插入goods表
     @RequestMapping("/addGoods.do")
-    public String doAddGoods(Goods goods, HttpServletRequest request,Model model) throws IOException {
+    public String doAddGoods(Goods goods,HttpServletRequest request,Model model) throws IOException {
         //从jsp获取内容
         String goodsname = request.getParameter("goodsname");
+        System.out.println(request.getParameter("classify"));
         int classify = Integer.parseInt(request.getParameter("classify"));
         String details = request.getParameter("details");
         float price = Float.parseFloat(request.getParameter("price"));
         int count = Integer.parseInt(request.getParameter("count"));
         String title = request.getParameter("title");
-        System.out.println(goodsname);
-        //如果文件不为空，写入上传路径
+
+//        如果文件不为空，写入上传路径
         if (!goods.getPhoto().isEmpty()) {
             //上传文件名
             String fileName = goods.getPhoto().getOriginalFilename();
@@ -98,6 +100,9 @@ public class AdminGoodsController {
         goods.setTitle(title);
         adminGoodsService.addGoods(goods);
         return null;
+//        System.out.println(goods);
+//        return "";
+
     }
 
     //删除商品

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -13,29 +15,35 @@ public class UserCenterController {
     @Autowired
     private UserCenterService userCenterService;
     /**
-     * 订单查询
-     * @param session
-     * @param myUtil
-     * @param id
+     * 游客、用户查询订单
      * @return
      */
     @RequestMapping("/userCenter.do")
-    public String SelectOrder(HttpSession session, MyUtil myUtil, Integer id, Model model)
+    public String SelectOrder(HttpServletRequest request,HttpSession session,Model model)
     {
-//        //判断是否为游客或者是用户
-//        if(MyUtil.getUserId(session)!=null)//用户
-//        {
-//            if(id==null){
-//                return userCenterService.userCenter2(session,myUtil,model);
-//            }
-//            else
-//                return userCenterService.userCenter1(id,myUtil,model);
-//
-//         }
-//        else//游客
-//           return  userCenterService.userCenter(id,myUtil,model);
-        return userCenterService.myOrder(1,model);
+        String datatime1 = request.getParameter("datatime1");
+        String datatime2 = request.getParameter("datatime2");
+        //判断用户是否输入订单号
+        if(request.getParameter("orderNum")==""){
+            return userCenterService.userCenter2(session,MyUtil.getUserId(session),datatime1,datatime2,model);
+        }
+        else{
+            Integer orderNum = Integer.valueOf(request.getParameter("orderNum"));
 
+            return userCenterService.userCenter1(session, orderNum, MyUtil.getUserId(session), datatime1, datatime2, model);
+
+        }
+    }
+    @RequestMapping("/userCenterone.do")
+    public String SelectOrderone(HttpServletRequest request,HttpSession session,Model model){
+        if(request.getParameter("orderNum")==""){
+            model.addAttribute("message","订单号不能为空！");
+            return "before/userCenterone.jsp";
+        }
+        Integer orderNum = Integer.valueOf(request.getParameter("orderNum"));
+        String datatime1 = request.getParameter("datatime1");
+        String datatime2 = request.getParameter("datatime2");
+        return  userCenterService.userCenter(orderNum,datatime1,datatime2,model);
     }
     @RequestMapping("/orderDetail.do")
     public String OrderDetail(Integer ordersn,Model model)

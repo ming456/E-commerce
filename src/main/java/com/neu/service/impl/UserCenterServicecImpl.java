@@ -2,7 +2,6 @@ package com.neu.service.impl;
 
 import com.neu.dao.UserCenterMapper;
 import com.neu.service.UserCenterService;
-import com.neu.util.MyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -20,51 +19,48 @@ public class UserCenterServicecImpl implements UserCenterService {
      * @return before/userCenter
      */
     @Override
-    public String userCenter(Integer id, MyUtil myUtil,Model model) {
+    public String userCenter(Integer orderNum, String datatime1, String datatime2, Model model) {
         Map<String,Object> map = new HashMap<String,Object>();
-//        map.put("id",id);
-        map.put("id",1);
-        map.put("datatime1",myUtil.getDatatime1());
-        map.put("datatime2",myUtil.getDatatime2());
+        map.put("orderNum",orderNum);
+        map.put("datatime1",datatime1);
+        map.put("datatime2",datatime2);
         model.addAttribute("myOrder",userCenterMapper.SelectOrder(map));
         return "before/userCenter.jsp";
     }
-
     /**
-     * 用户查询订单（订单号）
+     * 用户查询订单（空）
      * @param id
-     * @param myUtil
      * @return
      */
     @Override
-    public String userCenter1(Integer id, MyUtil myUtil,Model model) {
+    public String userCenter1(HttpSession session, Integer orderNum, Integer id, String datatime1, String datatime2, Model model) {
         Map<String,Object> map = new HashMap<String,Object>();
         //map.put("id",id);
-        map.put("id",1);
-        map.put("datatime1",myUtil.getDatatime1());
-        map.put("datatime2",myUtil.getDatatime2());
-        model.addAttribute("myOrder",userCenterMapper.SelectOrder2(map));
+        map.put("id",id);
+        map.put("orderNum",orderNum);
+        map.put("datatime1",datatime1);
+        map.put("datatime2",datatime2);
+        model.addAttribute("myOrder",userCenterMapper.SelectOrdered1(map));
         return "before/userCenter.jsp";
     }
 
     /**
-     * 用户查询订单（订单号为空）
+     * 订单号为空
      * @param session
-     * @param myUtil
+     * @param datatime1
+     * @param datatime2
+     * @param model
      * @return
      */
     @Override
-    public String userCenter2(HttpSession session,MyUtil myUtil,Model model) {
+    public String userCenter2(HttpSession session, Integer id, String datatime1, String datatime2, Model model) {
         Map<String,Object> map = new HashMap<String,Object>();
-        //map.put("id",MyUtil.getUserId(session));
-        map.put("id",1);
-        map.put("datatime1",myUtil.getDatatime1());
-        map.put("datatime2",myUtil.getDatatime2());
-        userCenterMapper.SelectOrder1(map);
-        model.addAttribute("myOrder",userCenterMapper.SelectOrder1(map));
+        map.put("id",id);
+        map.put("datatime1",datatime1);
+        map.put("datatime2",datatime2);
+        model.addAttribute("myOrder",userCenterMapper.SelectOrdered(map));
         return "before/userCenter.jsp";
     }
-
     /**
      * 通过订单号查询，来实现订单详情
      * @param ordersn

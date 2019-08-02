@@ -12,5 +12,12 @@
     <!-- 如果只有 mvc:default-servlet-handler, 注解类失效, 还需要配置 annotation-driven -->
     <mvc:annotation-driven/>
     <!--支持Json的Bean,配置ViewResolver。 可以用多个ViewResolver。 使用order属性排序。 InternalResourceViewResolver放在最后。 -->
+    <!--注册文件解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设定默认编码 -->
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <!-- 设定文件上传的最大值 -->
+        <property name="maxUploadSize" value="1048576"></property>
+    </bean>
 
 </beans>

@@ -168,7 +168,7 @@ public class UserController {
      */
     @RequestMapping("/userlogout.do")
     public String logOut(HttpSession session){
-        session.removeAttribute("userName");
+        session.removeAttribute("user");
         return "forward:/Browse.do";
     }
 

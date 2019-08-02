@@ -18,7 +18,7 @@
                         <img src="../images/head.jpg" class="img-responsive">
                     </a>
                     <div class="media-body">
-                        <div class="media-author">管理员:${sessionScope.user.supername}</div>
+                        <div class="media-author">管理员:<%--${sessionScope.user.supername}--%></div>
                         <div class="media-links">
                             <a href="/loginout.do">退出</a>
                         </div>

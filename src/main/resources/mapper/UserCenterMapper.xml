@@ -5,39 +5,26 @@
 <mapper namespace="com.neu.dao.UserCenterMapper">
     <!--游客查询订单-->
     <select id="SelectOrder" resultType="map">
-        select  od.orderId orderid,
-        gs.goodName goodname，
-        od.goodsNum goodsnum,
-        gs.price,gs.pay,od1.orderStatus
-        from orderdetail od ,goods gs,orders od1
-        where createTime between #{datatime1} and #{datatime2}
-        and od.orderId=#{id}
+      SELECT od1.orderNum,totalPay,od1.createTime,orderStatus,id
+        FROM  orders od1
+        where od1.createTime &gt;= #{datatime1}
+        and od1.createTime &lt;= #{datatime2}
+        and od1.orderNum=#{orderNum}
     </select>
-    <!--用户查询订单，订单号为空-->
-    <select id="SelectOrder1" resultType="map">
-        select  od.orderId orderid,
-        gs.goodName goodname，
-        od.goodsNum goodsnum,
-        gs.price,
-        gs.pay,
-        od1.orderStatus
-        from orderdetail od ,
-        goods gs,
-        orders od1，user us
-        where od1.createTime between #{datatime1} and #{datatime2}
-        and us.id=#{id}
-    </select>
-    <!--用户查询订单，订单号不为空-->
-    <select id="SelectOrder2" resultType="map">
-        select  od.orderId orderid,
-        gs.goodName goodname，
-        od.goodsNum goodsnum,
-        gs.price,
-        gs.pay,
-        od1.orderStatus
-        from orderdetail od ,goods gs,orders od1
-        where od1.createTime between #{datatime1} and #{datatime2}
-         and od.orderId=#{id}
+    <!--用户查询订单,为空-->
+    <select id="SelectOrdered" resultType="map">
+      SELECT od1.orderNum,totalPay,od1.createTime,orderStatus,id
+        FROM  orders od1
+        where od1.createTime &gt;= #{datatime1}
+        and od1.createTime &lt;= #{datatime2} and userId=#{id}
+      </select>
+
+    <select id="SelectOrdered1" resultType="map" >
+            <!--订单号不空-->
+        SELECT od1.orderNum,totalPay,od1.createTime,orderStatus,id
+        FROM  orders od1
+        where od1.createTime &gt;= #{datatime1}
+        and od1.createTime &lt;= #{datatime2} and userId=#{id} and  od1.orderNum=#{orderNum}
     </select>
     <!--订单详情-->
     <select id="OrderDetail" resultType="map">

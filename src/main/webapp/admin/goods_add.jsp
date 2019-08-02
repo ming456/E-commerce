@@ -53,13 +53,14 @@
                                     <div class="col-md-2">
                                         <label class="field select">
                                             <select id="language" name="classify">
-                                                <c:forEach items="${typeslist}" var="cat1">
+                                                <c:forEach items="${sessionScope.typesList}" var="cat1">
+                                                    <c:out value="${cat1.id}"/>
                                                     <option value="${cat1.id}" disabled>${cat1.typename}</option>
                                                     <c:forEach items="${cat1.children}" var="cat2">
                                                         <option value="${cat2.id}">&nbsp;&nbsp;&nbsp;&nbsp;${cat2.typename}</option>
-                                                        <c:forEach items="${cat2.children}" var="cat3">
-                                                            <option value="${cat3.id}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${cat3.typename}</option>
-                                                        </c:forEach>
+                                                        <%--<c:forEach items="${cat2.children}" var="cat3">--%>
+                                                            <%--<option value="${cat3.id}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${cat3.typename}</option>--%>
+                                                        <%--</c:forEach>--%>
                                                     </c:forEach>
                                                 </c:forEach>
                                             </select>
