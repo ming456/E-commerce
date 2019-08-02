@@ -20,7 +20,6 @@ public class OrderServiceImpl implements OrderService {
     public String orderSubmit(Model model, HttpSession session, float amount) {
         Orders order = new Orders();
         order.setUserid(MyUtil.getUserId(session));
-
         order.setTotalpay(amount);
         order.setOrdernum(Integer.parseInt(String.valueOf(MyUtil.getRandoms())));
         //生成订单，并将主键返回order

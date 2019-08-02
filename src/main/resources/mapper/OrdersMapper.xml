@@ -112,8 +112,8 @@
 	</insert>
     <!-- 生成订单详情 -->
     <insert id="addOrderDetail" parameterType="map">
-     insert into orderdetail(orderId,goodsId,goodsNum,pay)
-     select #{ordersn},goodstable_id,shoppingnum,shoppingnum*price smallnum
+	   insert into orderdetail(orderId,goodsId,goodsNum,pay)
+      select #{ordersn},goodstable_id,shoppingnum,shoppingnum*price smallnum
 	  from carttable,goods gs
 	  where gs.id=goodstable_id and busertable_id = #{uid}
 	</insert>

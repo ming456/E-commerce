@@ -26,8 +26,8 @@ public class CartServiceImpl implements CartService {
     @Override
     public String putCart(Model model,Integer goodsId,Integer shoppingnum,HttpSession session) {
         Map<String,Object> map = new HashMap<String,Object>();
-        //map.put("uid", MyUtil.getUserId(session));
-        map.put("uid",1);
+        map.put("uid", MyUtil.getUserId(session));
+        //map.put("uid",1);
         map.put("goodsId",goodsId);
         map.put("shoppingnum",shoppingnum);
         //是否添加了购物车
